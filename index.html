@@ -1,169 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Verificação Humana</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Protek Informática - Serviços de comunicação multimídia (SCM) especializados em MEI e PGMEI. Atendimento em General Carneiro/PR desde 2008.">
+    <title>Protek Informática | Comunicação Multimídia para MEI e PGMEI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e293b; background: #f8fafc; line-height: 1.6; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        .btn { display: inline-block; padding: 14px 32px; background: #b8860b; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background: #9a7209; }
+        .btn-outline { background: transparent; border: 2px solid #b8860b; color: #b8860b; }
+        .btn-outline:hover { background: #b8860b; color: #fff; }
+        h2 { font-size: 2rem; color: #0f2b46; margin-bottom: 1rem; }
+        h3 { color: #0f2b46; font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .section { padding: 60px 0; }
+        .bg-light { background: #f1f5f9; }
+        .flex { display: flex; gap: 30px; flex-wrap: wrap; }
+        .flex > * { flex: 1 1 280px; }
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
+        header { background: #0f2b46; color: #fff; padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header .logo { font-size: 1.8rem; font-weight: bold; color: #b8860b; text-decoration: none; }
+        header .contact-top { font-size: 0.9rem; display: flex; gap: 20px; align-items: center; }
+        header .contact-top a { color: #fff; text-decoration: none; }
+        header .contact-top i { margin-right: 5px; }
 
-body{
-  background:#f3f4f6;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
+        .hero { background: linear-gradient(135deg, #0f2b46 0%, #1e4660 100%); color: #fff; padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero .btn { margin: 0 10px; }
 
-.box{
-  width:360px;
-  background:white;
-  border-radius:16px;
-  padding:30px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.12);
-}
+        .info-numbers { display: flex; justify-content: center; gap: 40px; margin: 40px 0; flex-wrap: wrap; }
+        .info-numbers div { text-align: center; }
+        .info-numbers span { font-size: 2.5rem; font-weight: bold; color: #b8860b; display: block; }
 
-.title{
-  font-size:22px;
-  font-weight:bold;
-  margin-bottom:10px;
-  color:#111827;
-}
+        .cards { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
+        .card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); flex: 1 1 300px; transition: 0.3s; border-top: 3px solid #b8860b; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 60px; margin-bottom: 20px; }
 
-.subtitle{
-  color:#6b7280;
-  font-size:14px;
-  margin-bottom:25px;
-}
+        .team-img, .service-img { width: 100%; border-radius: 8px; object-fit: cover; height: 250px; margin-bottom: 20px; }
 
-.verify-area{
-  border:2px solid #d1d5db;
-  border-radius:12px;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  cursor:pointer;
-  transition:0.3s;
-}
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 4px; font-family: inherit; }
+        .contact-form textarea { height: 120px; }
 
-.verify-area:hover{
-  border-color:#3b82f6;
-}
+        footer { background: #0f2b46; color: #cbd5e1; padding: 40px 0; font-size: 0.9rem; }
+        footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
+        footer a { color: #b8860b; text-decoration: none; }
+        footer h4 { color: #fff; margin-bottom: 15px; }
 
-.checkbox{
-  width:28px;
-  height:28px;
-  border:2px solid #9ca3af;
-  border-radius:6px;
-  margin-right:15px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:18px;
-  color:white;
-  transition:0.3s;
-}
-
-.label{
-  font-size:16px;
-  color:#111827;
-}
-
-.footer{
-  margin-top:18px;
-  text-align:center;
-  font-size:12px;
-  color:#9ca3af;
-}
-
-.loading{
-  display:none;
-  margin-top:20px;
-  text-align:center;
-  color:#3b82f6;
-  font-size:14px;
-}
-
-.spinner{
-  width:22px;
-  height:22px;
-  border:3px solid #dbeafe;
-  border-top:3px solid #2563eb;
-  border-radius:50%;
-  margin:0 auto 10px;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  100%{
-    transform:rotate(360deg);
-  }
-}
-
-.success{
-  background:#22c55e;
-  border-color:#22c55e;
-}
-</style>
+        @media (max-width: 768px) {
+            h2 { font-size: 1.8rem; }
+            .hero h1 { font-size: 2rem; }
+            header .contact-top { flex-direction: column; gap: 5px; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="box">
-
-  <div class="title">
-    Verificação necessária
-  </div>
-
-  <div class="subtitle">
-    Confirme que você é humano para continuar.
-  </div>
-
-  <div class="verify-area" onclick="startVerification()">
-
-    <div class="checkbox" id="checkbox"></div>
-
-    <div class="label">
-      Não sou um robô
+<header>
+    <div class="container">
+        <a href="/" class="logo">PROTEK INFORMÁTICA</a>
+        <div class="contact-top">
+            <span>📞 (42) 3552-2983</span>
+            <span>✉️ lider_contabil@yahoo.com.br</span>
+        </div>
     </div>
+</header>
 
-  </div>
+<section class="hero">
+    <div class="container">
+        <h1>Soluções em Comunicação Multimídia para MEI e Pequenos Negócios</h1>
+        <p>Especialistas em SCM e regularização PGMEI desde 2008. Tecnologia e conformidade para o seu negócio crescer com segurança.</p>
+        <a href="#contato" class="btn">Solicitar Atendimento</a>
+        <a href="#servicos" class="btn btn-outline" style="color:#fff; border-color:#fff;">Nossos Serviços</a>
+    </div>
+</section>
 
-  <div class="loading" id="loading">
-    <div class="spinner"></div>
-    Verificando...
-  </div>
+<section class="section">
+    <div class="container">
+        <div class="info-numbers">
+            <div><span>+18</span> anos de mercado</div>
+            <div><span>SCM</span> Serviço de Comunicação Multimídia</div>
+            <div><span>PR</span> Atendimento em todo Paraná</div>
+        </div>
+    </div>
+</section>
 
-  <div class="footer">
-    Sistema de proteção automatizada
-  </div>
+<section class="section bg-light" id="sobre">
+    <div class="container flex">
+        <div>
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop" alt="Equipe em escritório" class="service-img" style="height:auto;">
+        </div>
+        <div>
+            <h2>Sobre a Protek Informática</h2>
+            <p>A Protek Informática LTDA, fundada em 2008 e sediada em General Carneiro/PR, atua com excelência em <strong>Serviços de Comunicação Multimídia (SCM)</strong>. Somos especializados em atender <strong>Microempreendedores Individuais (MEI)</strong> e empresas que necessitam de licenças <strong>PGMEI</strong> para operar serviços de telecomunicações e multimídia dentro da legalidade.</p>
+            <p>Nossa missão é descomplicar a burocracia e fornecer o suporte técnico e regulatório para que seu negócio esteja sempre conectado e em conformidade com a Anatel e a Receita Federal.</p>
+            <p><strong>Razão Social:</strong> Protek Informatica LTDA<br>
+            <strong>CNPJ:</strong> 09.384.464/0001-13<br>
+            <strong>Fundação:</strong> 22/02/2008</p>
+        </div>
+    </div>
+</section>
 
-</div>
+<section class="section" id="servicos">
+    <div class="container">
+        <h2 class="text-center">Nossos Serviços</h2>
+        <p class="text-center" style="max-width:700px; margin: 0 auto 40px;">Atendemos MEI, micro e pequenas empresas que precisam de licenciamento SCM, regularização de PGMEI e consultoria em comunicação multimídia.</p>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=80&h=80&fit=crop" alt="Ícone licença">
+                <h3>Licenciamento PGMEI</h3>
+                <p>Obtenção e manutenção da licença PGMEI junto à Anatel para MEI que prestam serviços de telecomunicações e multimídia.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=80&h=80&fit=crop" alt="Ícone contrato">
+                <h3>Regularização MEI</h3>
+                <p>Correção de pendências cadastrais, alteração de CNAE, adequação de atividades e manutenção da situação fiscal ativa.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=80&h=80&fit=crop" alt="Ícone tecnologia">
+                <h3>Consultoria SCM</h3>
+                <p>Planejamento técnico para serviços de comunicação multimídia, adequação às normas da Anatel e suporte operacional.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-<script>
-function startVerification(){
+<section class="section bg-light">
+    <div class="container flex">
+        <div>
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop" alt="Conformidade legal" class="service-img" style="height:auto;">
+        </div>
+        <div>
+            <h2>Por que escolher a Protek?</h2>
+            <ul style="list-style: none; margin-top: 20px;">
+                <li style="margin-bottom: 15px;">✅ <strong>Desde 2008</strong> no mercado de comunicação multimídia</li>
+                <li style="margin-bottom: 15px;">✅ <strong>Especialização real</strong> em MEI e PGMEI</li>
+                <li style="margin-bottom: 15px;">✅ <strong>Atendimento humanizado</strong> sem juridiquês</li>
+                <li style="margin-bottom: 15px;">✅ <strong>Transparência</strong> em cada etapa do processo</li>
+                <li style="margin-bottom: 15px;">✅ <strong>Suporte remoto</strong> para todo o Brasil</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-  const checkbox = document.getElementById("checkbox");
-  const loading = document.getElementById("loading");
+<section class="section" id="contato">
+    <div class="container" style="max-width: 700px;">
+        <h2 class="text-center">Entre em Contato</h2>
+        <p class="text-center">Preencha o formulário ou utilize nossos canais de atendimento. Retornamos em até 24 horas.</p>
+        <form class="contact-form" style="margin-top: 30px;">
+            <input type="text" placeholder="Nome completo" required>
+            <input type="email" placeholder="E-mail" required>
+            <input type="tel" placeholder="Telefone/WhatsApp">
+            <textarea placeholder="Descreva sua necessidade..."></textarea>
+            <button type="submit" class="btn" style="width:100%;">Enviar Mensagem</button>
+        </form>
+        <div class="text-center" style="margin-top: 40px;">
+            <p><strong>📞 Telefones:</strong> (42) 3552-2983 | (42) 3552-1357</p>
+            <p><strong>✉️ E-mail:</strong> lider_contabil@yahoo.com.br</p>
+            <p><strong>📍 Endereço:</strong> Rua Esteliano Pizzatto, 23 - Monte Castelo - General Carneiro/PR - CEP 84660-000</p>
+        </div>
+    </div>
+</section>
 
-  checkbox.innerHTML = "✓";
-  checkbox.classList.add("success");
-
-  loading.style.display = "block";
-
-  setTimeout(() => {
-
-    // ALTERE O LINK AQUI
-    window.location.href = "https://dasnsimei-fazenda.shop/?gcl=CM7PUmvg";
-
-  }, 2500);
-}
-</script>
+<footer>
+    <div class="container">
+        <div>
+            <h4>Protek Informática LTDA</h4>
+            <p>CNPJ: 09.384.464/0001-13<br>
+            Inscrição Estadual PR: 90431712-80<br>
+            Atividade: Serviços de comunicação multimídia - SCM<br>
+            Desde 22/02/2008</p>
+        </div>
+        <div>
+            <h4>Links Úteis</h4>
+            <p><a href="/politica-de-privacidade.html">Política de Privacidade</a></p>
+            <p><a href="/termos-de-uso.html">Termos de Uso</a></p>
+        </div>
+        <div>
+            <h4>Contato</h4>
+            <p>Rua Esteliano Pizzatto, 23<br>Monte Castelo - General Carneiro/PR<br>CEP: 84660-000</p>
+            <p>(42) 3552-2983</p>
+        </div>
+    </div>
+    <div class="container text-center" style="margin-top: 20px; border-top: 1px solid #334155; padding-top: 20px;">
+        <p>&copy; 2025 Protek Informática. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
 </body>
 </html>
